@@ -18,7 +18,7 @@
   </head>
   <body class="antialiased">
     <div class="container">
-      <form id="createTaskForm" action="#" method="post">
+      <form id="editTaskForm" action="#" method="post">
         <div class="form-group">
           <label for="title">Task title</label>
           <input type="hidden" id="id" value="{{ $task['id'] }}">
@@ -50,19 +50,18 @@
   <script type="text/javascript">
     "use strict";
     $(document).ready(function() {
-      $('#createTaskForm').on('submit', function(e) {
+      $('#editTaskForm').on('submit', function(e) {
         e.preventDefault();
-        console.log($('#createTaskForm').find('#status').val())
         $.ajax({
           url:'/update',
           type: "POST",
           data: {
             "_token": "{{ csrf_token() }}",
-            id: $('#createTaskForm').find('#id').val(),
-            title: $('#createTaskForm').find('#title').val(),
-            description: $('#createTaskForm').find('#description').val(),
-            due_date: $('#createTaskForm').find('#dueDate').val(),
-            status: $('#createTaskForm').find('#status').val()
+            id: $('#editTaskForm').find('#id').val(),
+            title: $('#editTaskForm').find('#title').val(),
+            description: $('#editTaskForm').find('#description').val(),
+            due_date: $('#editTaskForm').find('#dueDate').val(),
+            status: $('#editTaskForm').find('#status').val()
           },
           success:function(response){
             alert('Edit task completed.')

@@ -17,7 +17,7 @@
       <td>{{ $task["description"] }}</td>
       <td>{{ $task["due_date"] }}</td>
       <td>{{ $task["status"] }}</td>
-      <td><a href="#" class="btn btn-success mx-1">Complete</a><a href="/edit/{{ $task['id'] }}" class="btn btn-warning mx-1">Edit</a><a href="#" class="btn btn-danger mx-1">Delete</a></td>
+      <td><a href="#" class="btn btn-success mx-1">Complete</a><a href="/edit/{{ $task['id'] }}" class="btn btn-warning mx-1">Edit</a><a href="/info/{{ $task['id'] }}" class="btn btn-danger mx-1 deleteBtn">Delete</a></td>
     </tr>
   @endforeach
   </tbody>
